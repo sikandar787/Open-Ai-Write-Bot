@@ -25,3 +25,4 @@ Route::get('/write', function () {
 });
 
 Route::post('/write/generate', [ArticleGenerator::class, 'index']);
+Route::get('/generate', [ArticleGenerator::class, 'ImageGeneration']);
