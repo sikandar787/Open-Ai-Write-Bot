@@ -15,7 +15,7 @@ use App\Http\Controllers\ArticleGenerator;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/write', function () {
@@ -25,4 +25,4 @@ Route::get('/write', function () {
 });
 
 Route::post('/write/generate', [ArticleGenerator::class, 'index']);
-Route::get('/generate', [ArticleGenerator::class, 'ImageGeneration']);
+Route::post('/generate', [ArticleGenerator::class, 'ImageGeneration'])->name('imagegen');

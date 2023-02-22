@@ -35,9 +35,9 @@ class ArticleGenerator extends Controller
         return view('write', compact('title', 'content'));
     }
 
-    public function ImageGeneration()
-    {
-        $text = "Logo for e commerece";
+    public function ImageGeneration(TextRequest $request)
+    {   
+        $text =  $request->text;
         $url = "https://api.openai.com/v1/images/generations";
         $token = config('app.openai_api_key') ;
         $json = ['prompt'=> $text, 'n'=>5, 'size'=> '512x512'];
@@ -45,33 +45,9 @@ class ArticleGenerator extends Controller
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer '.$token
         ])->post($url, $json)->json();
-            return $response;
-        // $ch = curl_init($url);
-        
-        // /* Array Parameter Data */
-        // $data = ['prompt'=> $text, 'n'=>5, 'size'=> '512x512'];
-        // curl_setopt($ch, CURLOPT_POST, 1);
-        // // /* pass encoded JSON string to the POST fields */
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-            
-        // /* set the content type json */
-        // // $headers = [];
-        // // $headers[] = 'Content-Type:application/json';
-        // // $headers[] = "Authorization: Bearer ".$token;
-        // // return $headers;
-        
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization: Bearer '.$token));
-            
-        // /* set return type json */
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            
-        // /* execute request */
-        // $result = curl_exec($ch);
-             
-        // /* close cURL resource */
-        // curl_close($ch);
-        
-        // return $result;
+     $response = $response['data'];
+    //  return $response;
+            return view('generate',compact('response'));
     }
 
 }
