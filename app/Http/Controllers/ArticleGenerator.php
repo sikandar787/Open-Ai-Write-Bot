@@ -30,13 +30,13 @@ class ArticleGenerator extends Controller
             ]
         );
         $content = trim($result['choices'][0]['text']);
-        
+
 
         return view('write', compact('title', 'content'));
     }
 
     public function ImageGeneration(TextRequest $request)
-    {   
+    {
         $text =  $request->text;
         $url = "https://api.openai.com/v1/images/generations";
         $token = config('app.openai_api_key') ;
@@ -45,9 +45,11 @@ class ArticleGenerator extends Controller
             'Content-Type' => 'application/json',
             'Authorization' => 'Bearer '.$token
         ])->post($url, $json)->json();
-     $response = $response['data'];
-    //  return $response;
-            return view('generate',compact('response'));
+        if(isset($response['data'])) {
+            $response = $response['data'];
+        }
+        //  return $response;
+        return view('gen1',compact('response'));
     }
 
 }

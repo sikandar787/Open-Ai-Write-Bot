@@ -15,7 +15,7 @@ use App\Http\Controllers\ArticleGenerator;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/write', function () {

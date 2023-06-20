@@ -35,7 +35,7 @@
       <form action="{{ route('imagegen') }}" method="post">
         @csrf
         <div class="form-1">
-          <textarea cols="53" name= "text" placeholder="Enter your text"></textarea><br />
+          <textarea name= "text" placeholder="Enter your text"></textarea><br />
           <button type="submit">Generate</button>
           <!-- <a class="a" href="">Generate</a> -->
         </div>
