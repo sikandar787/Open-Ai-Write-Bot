@@ -18,6 +18,7 @@
     href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     {{-- <link
       href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
@@ -158,6 +159,17 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/main.js"></script>
+    @if (Session::has('error'))
+        <script>
+            toastr.options =
+                {
+                    "closeButton" : true,
+                    "progressBar" : true
+                }
+            toastr.warning("{{ Session::get('error') }}");
+        </script>
+    @endif
   </body>
 </html>

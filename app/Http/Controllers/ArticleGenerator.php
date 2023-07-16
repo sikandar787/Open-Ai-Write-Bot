@@ -48,7 +48,11 @@ class ArticleGenerator extends Controller
         if(isset($response['data'])) {
             $response = $response['data'];
         }
-        //  return $response;
+        if (isset($response['error'])) {
+            $message = $response['error']['message'];
+            return redirect()->back()->with('error', $message);
+        }
+
         return view('gen1',compact('response'));
     }
 
