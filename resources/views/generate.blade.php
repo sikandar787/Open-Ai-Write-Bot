@@ -36,38 +36,8 @@
 </main>
 <!-- cards -->
 
-<div class="container d-none">
-    <div class="card-deck row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card">
-                <div class="view overlay">
-                    <img class="card-img-top" src="./assets/img/1 (2).jpg" alt="Card image cap" />
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card mb-4">
-                <div class="view overlay">
-                    <img class="card-img-top" src="./assets/img/5.jpg" alt="Card image cap" />
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card mb-4">
-                <div class="view overlay">
-                    <img class="card-img-top" src="./assets/img/1.jpg" alt="Card image cap" />
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <div class="card-deck row" id="image-results">
     </div>
 </div>
 
@@ -109,6 +79,7 @@ const searchData = document.querySelector(".search-data");
         cancelBtn.classList.add("active");
         searchInput.focus();
         if (searchInput.value != "") {
+            $("#image-results").empty();
             $.ajax({
             type: "POST",
             url: "{{route('imagegen')}}",
@@ -117,20 +88,40 @@ const searchData = document.querySelector(".search-data");
                 "_token": "{{ csrf_token() }}",
             },
             success: function (result) {
-                console.log(result.message);
+                if (result.status === "success") {
+                    let html = "";
+                    $(result.data).each(function(i, v){
+                        html += `<div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="card">
+                                        <div class="view overlay">
+                                            <img class="card-img-top" src="${v.url}" alt="Card image cap" />
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>`;
+                    });
+                    $("#image-results").removeClass('d-none');
+                    $("#image-results").empty().append(html);
+
+                } else {
+                    // Display an error toast, with a title
+                    toastr.error(result.message, 'Error!');
+                }
             },
             error : function () {
-                $("#loginModal").modal('show');
+                // $("#loginModal").modal('show');
             },
             dataType: "json"
             });
-            var values = searchInput.value;
-            searchData.classList.remove("active");
-            searchData.innerHTML =
-            "You just typed " +
-            "<span style='color: black; font-weight: 500;'>" +
-            values +
-            "</span>";
+            // var values = searchInput.value;
+            // searchData.classList.remove("active");
+            // searchData.innerHTML =
+            // "You just typed " +
+            // "<span style='color: black; font-weight: 500;'>" +
+            // values +
+            // "</span>";
 
             // OPENAI API CALL
 

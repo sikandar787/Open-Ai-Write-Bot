@@ -17,8 +17,8 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [ImageGenerateController::class, 'index'])->name('home');
 Route::get('/generate', [ImageGenerateController::class, 'generate'])->name('generate');
+Route::post('/image/generate', [ImageGenerateController::class, 'ImageGeneration'])->name('imagegen');
 Route::group(['middleware' => 'auth'],function(){
-    Route::post('/generate', [ImageGenerateController::class, 'ImageGeneration'])->name('imagegen');
 });
 
 Route::get('/signup', [AuthController::class,'signup'])->name('signup');
