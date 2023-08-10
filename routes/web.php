@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleGenerator;
+use App\Http\Controllers\ImageGenerateController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +15,13 @@ use App\Http\Controllers\ArticleGenerator;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', [ImageGenerateController::class, 'index'])->name('home');
+Route::get('/generate', [ImageGenerateController::class, 'generate'])->name('generate');
+Route::group(['middleware' => 'auth'],function(){
+    Route::post('/generate', [ImageGenerateController::class, 'ImageGeneration'])->name('imagegen');
 });
 
-Route::get('/write', function () {
-    $title = '';
-    $content = '';
-    return view('write', compact('title', 'content'));
-});
-
-Route::post('/write/generate', [ArticleGenerator::class, 'index']);
-Route::post('/generate', [ArticleGenerator::class, 'ImageGeneration'])->name('imagegen');
+Route::get('/signup', [AuthController::class,'signup'])->name('signup');
+Route::get('/login', [AuthController::class,'index'])->name('login');
+Route::post('/register/user', [AuthController::class,'registerUser'])->name('register.user');
+Route::post('/auth/user', [AuthController::class,'authenticateUser'])->name('auth.user');

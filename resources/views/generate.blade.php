@@ -1,85 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      src="https://kit.fontawesome.com/63e8927567.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Generate image</title>
-    <style>
-      /* .img-9{
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 25px;
-        padding-top: 10px;
-      } */
-      .d-flex {
-        display: flex;
-      }
-      .container {
-        text-align: center;
-        padding-left: 32px;
-        position: relative;
-        width: 19%;
-      }
+@include('partials.header')
+<main id="main">
+    <!-- Services Details Page Title & Breadcrumbs -->
+    <div data-aos="fade" class="page-title">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1>Generate an image</h1>
+                        <p class="mb-0">
+                            Text-to-image models have been built using a variety of
+                            architectures.Text-to-image models have been built using a
+                            variety of architectures.Training a text-to-image model
+                            requires a dataset of images paired with text captions.
+                        </p>
+                        <!-- generate image -->
 
-      .image {
-        padding-top: 2rem;
-        display: flex;
-        min-width: 16rem;
-        height: 15rem;
-        margin-left: 52px;
-      }
+                        <div class="d-flex align-items-center justify-content-center mt-4">
+                            <div class="search-box">
+                                <input type="text" placeholder="Type to search.." />
+                                <div class="search-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="cancel-icon">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="search-data"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title -->
+</main>
+<!-- cards -->
 
-      .overlay {
-        margin-left: 84px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgb(89, 89, 89);
-        overflow: hidden;
-        width: 95%;
-        height: 0;
-        transition: 0.5s ease;
-      }
+<div class="container d-none">
+    <div class="card-deck row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card">
+                <div class="view overlay">
+                    <img class="card-img-top" src="./assets/img/1 (2).jpg" alt="Card image cap" />
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card mb-4">
+                <div class="view overlay">
+                    <img class="card-img-top" src="./assets/img/5.jpg" alt="Card image cap" />
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card mb-4">
+                <div class="view overlay">
+                    <img class="card-img-top" src="./assets/img/1.jpg" alt="Card image cap" />
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-      .container:hover .overlay {
-        height: 88.5%;
-      }
-
-      .btn {
-        color: white;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-      .btn a {
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="d-flex">
-      @foreach ($response as $user)
-      <div class="container">
-        <img src="{{$user['url']}}" class="image" />
-        <div class="overlay">
-          <div class="btn">
-            <a href=""><i class="fa-solid fa-circle-down"></i></a>
-          </div>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter your username">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
         </div>
       </div>
-      @endforeach
     </div>
-  
-  </body>
-</html>
+  </div>
+@section('js')
+<script>
+   // searchbar
+const searchBox = document.querySelector(".search-box");
+const searchBtn = document.querySelector(".search-icon");
+const cancelBtn = document.querySelector(".cancel-icon");
+const searchInput = document.querySelector("input");
+const searchData = document.querySelector(".search-data");
+    searchBtn.onclick = () => {
+        searchBox.classList.add("active");
+        searchBtn.classList.add("active");
+        searchInput.classList.add("active");
+        cancelBtn.classList.add("active");
+        searchInput.focus();
+        if (searchInput.value != "") {
+            $.ajax({
+            type: "POST",
+            url: "{{route('imagegen')}}",
+            data: {
+                "text": searchInput.value,
+                "_token": "{{ csrf_token() }}",
+            },
+            success: function (result) {
+                console.log(result.message);
+            },
+            error : function () {
+                $("#loginModal").modal('show');
+            },
+            dataType: "json"
+            });
+            var values = searchInput.value;
+            searchData.classList.remove("active");
+            searchData.innerHTML =
+            "You just typed " +
+            "<span style='color: black; font-weight: 500;'>" +
+            values +
+            "</span>";
+
+            // OPENAI API CALL
+
+            // Get Response
+
+            // Reddirect to new Page
+        } else {
+            searchData.textContent = "";
+        }
+    };
+    cancelBtn.onclick = () => {
+        searchBox.classList.remove("active");
+        searchBtn.classList.remove("active");
+        searchInput.classList.remove("active");
+        cancelBtn.classList.remove("active");
+        searchData.classList.toggle("active");
+        searchInput.value = "";
+    };
+</script>
+@endsection
+@include('partials.footer')
+
