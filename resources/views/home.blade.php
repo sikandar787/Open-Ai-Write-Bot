@@ -1,7 +1,7 @@
 @include('partials.header')
 
 <main id="main">
-    <!-- Hero Section - Home Page -->
+    <!-- Home Page -->
     <section id="hero" class="hero">
         <img src="assets/img/99.jpg" alt="" data-aos="fade-in" />
 
@@ -21,7 +21,7 @@
     </section>
     <!-- End Hero Section -->
 
-    <!-- About Section - Home Page -->
+    <!-- About Section - -->
     <section id="about" class="about">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-xl-center gy-5">
@@ -95,7 +95,7 @@
     <!-- End About Section -->
 
 
-    <!-- Features Section - Home Page -->
+    <!-- Features Section  -->
     <section id="features" class="features">
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -119,8 +119,8 @@
                 <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out"
                     data-aos-delay="100">
                     <div class="image-stack">
-                        <img src="assets/img/features-light-1.jpg" alt="" class="stack-front" />
-                        <img src="assets/img/features-light-2.jpg" alt="" class="stack-back" />
+                        <img src="assets/img/light-1.png" alt="" class="stack-front" />
+                        <img src="assets/img/light-2.png" alt="" class="stack-back" />
                     </div>
                 </div>
             </div>
@@ -179,11 +179,11 @@
 
                 <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid"
+                        <img src="assets/img/baby-1.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>Spray</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1"
+                            <h4>Baby</h4>
+                            <a href="assets/img/baby-1.png" title="App 1"
                                 data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
@@ -192,11 +192,11 @@
                     <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid"
+                        <img src="assets/img/bikes.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>Cup</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1"
+                            <h4>Cycle</h4>
+                            <a href="assets/img/bikes.png" title="Product 1"
                                 data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
@@ -205,11 +205,11 @@
                     <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid"
+                        <img src="assets/img/car 1.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>Box</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1"
+                            <h4>Car</h4>
+                            <a href="assets/img/car 1.png" title="Branding 1"
                                 data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
@@ -218,11 +218,11 @@
                     <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid"
+                        <img src="assets/img/car 2.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>Glasses</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2"
+                            <h4>Car</h4>
+                            <a href="assets/img/car 2.png" title="App 2"
                                 data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
@@ -257,11 +257,11 @@
                     <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid"
+                        <img src="assets/img/light-1.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>App 3</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
+                            <h4>Lamp</h4>
+                            <a href="assets/img/mlight-1.png" title="App 3"
                                 data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
@@ -270,11 +270,11 @@
                     <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                        <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid"
+                        <img src="assets/img/light-2.png" class="img-fluid"
                             alt="" />
                         <div class="portfolio-info">
-                            <h4>Product 3</h4>
-                            <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
+                            <h4>Lamp</h4>
+                            <a href="assets/img/light-2.png" title="Product 3"
                                 data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                     class="bi bi-zoom-in"></i></a>
 
