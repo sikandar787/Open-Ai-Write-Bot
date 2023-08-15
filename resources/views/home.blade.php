@@ -114,7 +114,7 @@
                         stunning visual representations. Experience the power of
                         AI-driven content creation with just a few clicks.
                     </p>
-                    <a href="#" class="btn btn-get-started">Get Started</a>
+                    <a href="{{ route('generate') }}" class="btn btn-get-started">Get Started</a>
                 </div>
                 <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out"
                     data-aos-delay="100">

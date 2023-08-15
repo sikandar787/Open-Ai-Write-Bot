@@ -1,0 +1,73 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    background: url("../img/654.jpg") no-repeat ;
+    background-size: cover;
+    position: relative;
+    /* background-position: center; */
+    background-attachment: fixed;
+  }
+.form-group {
+    margin-bottom: 25px; }
+    .form-group .control-label,
+    .form-group > label {
+      font-weight: 600;
+      color: #34395e;
+      font-size: 12px;
+      letter-spacing: .5px; }
+    .form-group.floating-addon {
+      position: relative; }
+      .form-group.floating-addon .input-group-prepend {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 5; }
+      .form-group.floating-addon:not(.floating-addon-not-append) .input-group-append {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        left: initial;
+        right: 0; }
+      .form-group.floating-addon .input-group-prepend .input-group-text, .form-group.floating-addon .input-group-append .input-group-text {
+        border-color: transparent;
+        background-color: transparent;
+        font-size: 20px; }
+      .form-group.floating-addon .form-control {
+        border-radius: 3px;
+        padding-left: 40px; }
+        .form-group.floating-addon .form-control + .form-control {
+          border-radius: 0 3px 3px 0;
+          padding-left: 15px; }
+
+          .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+            background-color: #fff;
+            border-radius: 3px;
+            border: none;
+            position: relative;
+            margin-bottom: 30px; }
+  .card .card-header, .card .card-body, .card .card-footer {
+      background-color: transparent;
+      padding: 20px 25px; }
+    .card .navbar {
+      position: static; }
+    .card .card-body {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      .card .card-body .section-title {
+        margin: 30px 0 10px 0;
+        font-size: 16px; }
+        .card .card-body .section-title:before {
+          margin-top: 8px; }
+      .card .card-body .section-title + .section-lead {
+        margin-top: -5px; }
+      .card .card-body p {
+        font-weight: 500; }
+
+
+
+
+
+

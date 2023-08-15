@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SignupRequest;
 use App\Http\Requests\AuthenticateUser;
 use App\Models\User;
-use Auth;
-use Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function index () {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
         return view('login');
     }
     public function signup () {
@@ -24,6 +26,9 @@ class AuthController extends Controller
 
     public function authenticateUser(AuthenticateUser $request) {
         if (Auth::attempt(['email' => $request->validated('email'), 'password' => $request->validated('password')])) {
+            if (isset($request->isGenerate)) {
+                return redirect()->route('generate');
+            }
             return redirect()->route('home');
         }
         return redirect()->back();

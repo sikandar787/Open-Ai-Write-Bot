@@ -43,55 +43,62 @@
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login to generate images</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            <div class="modal-body">
+                <form method="POST" action="{{ route('auth.user') }}" class="needs-validation">
+                    @csrf
+                    <input type="hidden" name="isGenerate" value="true">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" id="email"
+                            placeholder="Enter your username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Enter your password">
+                    </div>
+                    <div class="mb-3">
+                        <a href="{{ route('signup') }}" style="color: #0d6efd">Create account</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 @section('js')
-<script>
-   // searchbar
-const searchBox = document.querySelector(".search-box");
-const searchBtn = document.querySelector(".search-icon");
-const cancelBtn = document.querySelector(".cancel-icon");
-const searchInput = document.querySelector("input");
-const searchData = document.querySelector(".search-data");
-    searchBtn.onclick = () => {
-        searchBox.classList.add("active");
-        searchBtn.classList.add("active");
-        searchInput.classList.add("active");
-        cancelBtn.classList.add("active");
-        searchInput.focus();
-        if (searchInput.value != "") {
-            $("#image-results").empty();
-            $.ajax({
-            type: "POST",
-            url: "{{route('imagegen')}}",
-            data: {
-                "text": searchInput.value,
-                "_token": "{{ csrf_token() }}",
-            },
-            success: function (result) {
-                if (result.status === "success") {
-                    let html = "";
-                    $(result.data).each(function(i, v){
-                        html += `<div class="col-xs-12 col-sm-6 col-md-4">
+    <script>
+        // searchbar
+        const searchBox = document.querySelector(".search-box");
+        const searchBtn = document.querySelector(".search-icon");
+        const cancelBtn = document.querySelector(".cancel-icon");
+        const searchInput = document.querySelector("input");
+        const searchData = document.querySelector(".search-data");
+        searchBtn.onclick = () => {
+            searchBox.classList.add("active");
+            searchBtn.classList.add("active");
+            searchInput.classList.add("active");
+            cancelBtn.classList.add("active");
+            searchInput.focus();
+            if (searchInput.value != "") {
+                $("#image-results").empty();
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('imagegen') }}",
+                    data: {
+                        "text": searchInput.value,
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function(result) {
+                        if (result.status === "success") {
+                            let html = "";
+                            $(result.data).each(function(i, v) {
+                                html += `<div class="col-xs-12 col-sm-6 col-md-4">
                                     <div class="card">
                                         <div class="view overlay">
                                             <img class="card-img-top" src="${v.url}" alt="Card image cap" />
@@ -101,46 +108,46 @@ const searchData = document.querySelector(".search-data");
                                         </div>
                                     </div>
                                 </div>`;
-                    });
-                    $("#image-results").removeClass('d-none');
-                    $("#image-results").empty().append(html);
+                            });
+                            $("#image-results").removeClass('d-none');
+                            $("#image-results").empty().append(html);
 
-                } else {
-                    // Display an error toast, with a title
-                    toastr.error(result.message, 'Error!');
-                }
-            },
-            error : function () {
-                // $("#loginModal").modal('show');
-            },
-            dataType: "json"
-            });
-            // var values = searchInput.value;
-            // searchData.classList.remove("active");
-            // searchData.innerHTML =
-            // "You just typed " +
-            // "<span style='color: black; font-weight: 500;'>" +
-            // values +
-            // "</span>";
+                        } else {
+                            // Display an error toast, with a title
+                            toastr.error(result.message, 'Error!');
+                        }
+                    },
+                    error: function() {
+                        $("#loginModal").modal('show');
+                    },
+                    dataType: "json"
+                });
+                // var values = searchInput.value;
+                // searchData.classList.remove("active");
+                // searchData.innerHTML =
+                // "You just typed " +
+                // "<span style='color: black; font-weight: 500;'>" +
+                // values +
+                // "</span>";
 
-            // OPENAI API CALL
+                // OPENAI API CALL
 
-            // Get Response
+                // Get Response
 
-            // Reddirect to new Page
-        } else {
-            searchData.textContent = "";
-        }
-    };
-    cancelBtn.onclick = () => {
-        searchBox.classList.remove("active");
-        searchBtn.classList.remove("active");
-        searchInput.classList.remove("active");
-        cancelBtn.classList.remove("active");
-        searchData.classList.toggle("active");
-        searchInput.value = "";
-    };
-</script>
+                // Reddirect to new Page
+            } else {
+                searchData.textContent = "";
+                
+            }
+        };
+        cancelBtn.onclick = () => {
+            searchBox.classList.remove("active");
+            searchBtn.classList.remove("active");
+            searchInput.classList.remove("active");
+            cancelBtn.classList.remove("active");
+            searchData.classList.toggle("active");
+            searchInput.value = "";
+        };
+    </script>
 @endsection
 @include('partials.footer')
-

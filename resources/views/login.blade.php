@@ -20,7 +20,7 @@
           <div class="card-header"><h4>Login</h4></div>
 
           <div class="card-body">
-            <form method="POST" action="{{route('register.user')}}"  class="needs-validation">
+            <form method="POST" action="{{route('auth.user')}}"  class="needs-validation">
                 @csrf
               <div class="form-group">
                 <label for="email">Email</label>
