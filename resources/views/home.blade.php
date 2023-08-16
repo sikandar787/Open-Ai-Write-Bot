@@ -19,9 +19,10 @@
             </div>
         </div>
     </section>
-    <!-- End Hero Section -->
+    <!-- End Home page -->
 
     <!-- About Section - -->
+    {{-- About paragraph --}}
     <section id="about" class="about">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row align-items-xl-center gy-5">
@@ -36,7 +37,9 @@
                     </p>
                     <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
+                     {{-- End About paragraph --}}
 
+                      {{-- start Box 1 --}}
                 <div class="col-xl-7">
                     <div class="row gy-4 icon-boxes">
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -50,8 +53,9 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- End Icon Box -->
+                        <!-- End  {{--  Box 1 --}} -->
 
+                          {{-- start Box 2 --}}
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon-box">
                                 <i class="bi bi-clipboard-pulse"></i>
@@ -62,8 +66,9 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- End Icon Box -->
+                        <!-- End box-2  -->
 
+                          {{-- start Box 3 --}}
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="icon-box">
                                 <i class="bi bi-command"></i>
@@ -74,8 +79,9 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- End Icon Box -->
+                        <!-- End Box 3 -->
 
+                          {{-- start Box 4 --}}
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
                                 <i class="bi bi-graph-up-arrow"></i>
@@ -86,7 +92,7 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- End Icon Box -->
+                        <!-- End  Box 4 -->
                     </div>
                 </div>
             </div>
@@ -97,12 +103,12 @@
 
     <!-- Features Section  -->
     <section id="features" class="features">
-        <!--  Section Title -->
+        <!--  Feature Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Features</h2>
             <p>We can help you to Generate your desire image.</p>
         </div>
-        <!-- End Section Title -->
+        <!-- End Feature Title -->
 
         <div class="container">
             <div class="row gy-4 align-items-center features-item">
@@ -126,9 +132,13 @@
             </div>
             <!-- Features Item -->
             <div class="row gy-4 align-items-stretch justify-content-between features-item">
+
+                {{-- Feature images start --}}
                 <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
                     <img src="assets/img/features-light-3.jpg" class="img-fluid" alt="" />
                 </div>
+                {{-- feature images end --}}
+
                 <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
                     <h3>AI Image Generation Unleashed:A New Era of Expression</h3>
                     <p>
@@ -162,7 +172,7 @@
     </section>
     <!-- End Features Section -->
 
-    <!-- Portfolio Section - Home Page -->
+    <!-- Ai generated images - Home Page -->
     <section id="generated-images" class="portfolio">
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -175,8 +185,9 @@
 
         <div class="container">
             <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-                <!-- End Portfolio Filters -->
+                <!-- End Ai images generated title -->
 
+                {{-- Start Ai Generated images --}}
                 <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                         <img src="assets/img/baby-1.png" class="img-fluid"
@@ -189,8 +200,6 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
-
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                         <img src="assets/img/bikes.png" class="img-fluid"
                             alt="" />
@@ -202,7 +211,6 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                         <img src="assets/img/car 1.png" class="img-fluid"
@@ -215,7 +223,6 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                         <img src="assets/img/car 2.png" class="img-fluid"
@@ -228,7 +235,7 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                         <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid"
@@ -241,7 +248,7 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                         <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid"
@@ -254,7 +261,7 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                         <img src="assets/img/light-1.png" class="img-fluid"
@@ -267,7 +274,7 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                         <img src="assets/img/light-2.png" class="img-fluid"
@@ -280,7 +287,7 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+
 
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                         <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid"
@@ -293,12 +300,10 @@
 
                         </div>
                     </div>
-                    <!-- End Portfolio Item -->
+                    <!-- End Ai generated images -->
                 </div>
-                <!-- End Portfolio Container -->
             </div>
         </div>
     </section>
-    <!-- End Portfolio Section -->
 </main>
 @include('partials.footer')

@@ -122,22 +122,10 @@
                     },
                     dataType: "json"
                 });
-                // var values = searchInput.value;
-                // searchData.classList.remove("active");
-                // searchData.innerHTML =
-                // "You just typed " +
-                // "<span style='color: black; font-weight: 500;'>" +
-                // values +
-                // "</span>";
 
-                // OPENAI API CALL
-
-                // Get Response
-
-                // Reddirect to new Page
             } else {
                 searchData.textContent = "";
-                
+
             }
         };
         cancelBtn.onclick = () => {

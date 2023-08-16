@@ -16,7 +16,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#generated-images">Generated images</a></li>
-                <li><a href="route">Signup</a></li>
             </ul>
 
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
